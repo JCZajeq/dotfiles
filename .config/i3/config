@@ -5,7 +5,7 @@ font FiraCode Nerd Font 8
 
 # Autostart
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id compton
+exec --no-startup-id picom --blur-background-fixed
 exec feh --bg-center ~/.wallpaper.jpg
 exec polybar top
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
