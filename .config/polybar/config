@@ -1,21 +1,3 @@
-;==========================================================
-;
-;
-;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
-;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
-;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
-;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
-;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
-;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-;
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/polybar/polybar
-;
-;   The README contains a lot of information
-;
-;==========================================================
-
 [colors]
 background = #000000
 primary = #fff
@@ -24,7 +6,7 @@ alert = #f7768e
 [bar/top]
 monitor = HDMI-3
 width = 100%
-height = 27
+height = 22
 ;offset-x = 1%
 ;offset-y = 1%
 fixed-center = false
@@ -40,10 +22,10 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = FiraCode Nerd Font:pixelsize=10;0
+font-0 = FiraCode Nerd Font:pixelsize=11;0
 
 modules-left = i3
-modules-center = mpd
+modules-center = xwindow
 modules-right = date memory cpu eth powermenu pulseaudio
 
 tray-position = right
@@ -67,7 +49,7 @@ index-sort = true
 wrapping-scroll = false
 
 ; Only show workspaces on the same output as the bar
-;pin-workspaces = true
+; pin-workspaces = true
 
 label-mode-padding = 2
 label-mode-foreground = #000
@@ -75,7 +57,7 @@ label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
 label-focused = %name%
-label-focused-background = ${colors.background-alt}
+label-focused-background = #666666
 label-focused-underline = #0095ff
 label-focused-padding = 2
 
@@ -85,7 +67,7 @@ label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %name%
-label-visible-background = ${self.label-focused-background}
+label-visible-background = #000000
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
@@ -99,32 +81,28 @@ label-urgent-padding = 2
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = "[  "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
-label = %percentage:2%%
+label = %percentage:2%% ]
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = "[  "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
-label = %percentage_used%%
+label = %percentage_used%% ]
 
 [module/eth]
 type = internal/network
 interface = enp2s0
 interval = 3.0
 
-format-connected-underline = #55aa55
-format-connected-prefix = " "
+format-connected-prefix = "[  "
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+label-connected = %local_ip% ]
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
@@ -138,11 +116,10 @@ date-alt = " %Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
+format-prefix = "[  "
+format-prefix-foreground = ${colors.foreground-alt}#ff555
 
-label = %date% %time%
+label =  %date% %time% ]
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -160,7 +137,7 @@ bar-volume-foreground-1 = #55aa55
 bar-volume-foreground-2 = #55aa55
 bar-volume-foreground-3 = #55aa55
 bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-5 = #55aa55
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
 bar-volume-indicator = |
@@ -171,6 +148,15 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
+[module/xwindow]
+type = internal/xwindow
+format = <label>
+format-background = #000
+format-foreground = #fff
+format-padding = 4
+
+label = %title%
+label-maxlen = 50
 
 [settings]
 screenchange-reload = true
