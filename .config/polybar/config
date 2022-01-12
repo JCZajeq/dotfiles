@@ -1,10 +1,10 @@
 [colors]
 background = #000000
-primary = #fff
+primary = #4db5ff
 alert = #f7768e
 
 [bar/top]
-monitor = HDMI-3
+monitor = HDMI-1
 width = 100%
 height = 22
 ;offset-x = 1%
@@ -16,7 +16,7 @@ background = ${colors.background}
 line-size = 3
 line-color = #f00
 
-padding-left = 0
+padding-left = 2
 padding-right = 2
 
 module-margin-left = 1
@@ -57,7 +57,7 @@ label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
 label-focused = %name%
-label-focused-background = #666666
+label-focused-background = #33aaff
 label-focused-underline = #0095ff
 label-focused-padding = 2
 
@@ -88,7 +88,7 @@ label = %percentage:2%% ]
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "[  "
+format-prefix = "[  "
 format-prefix-foreground = ${colors.foreground-alt}
 label = %percentage_used%% ]
 
@@ -132,13 +132,13 @@ label-muted = 🔇 muted
 label-muted-foreground = #666
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #55aa55
-bar-volume-foreground-6 = #ff5555
+bar-volume-foreground-0 = #33aaff
+bar-volume-foreground-1 = #33aaff
+bar-volume-foreground-2 = #33aaff
+bar-volume-foreground-3 = #33aaff
+bar-volume-foreground-4 = #33aaff
+bar-volume-foreground-5 = #33aaff
+bar-volume-foreground-6 = #33aaff
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
@@ -151,7 +151,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 [module/xwindow]
 type = internal/xwindow
 format = <label>
-format-background = #000
+format-background = #0095ff
 format-foreground = #fff
 format-padding = 4
 
@@ -164,7 +164,7 @@ screenchange-reload = true
 ;compositing-background = screen
 ;compositing-foreground = source
 ;compositing-border = over
-;pseudo-transparency = false
+;pseudo-transparency = true
 
 [global/wm]
 margin-top = 5
